@@ -16,5 +16,36 @@ SSL Certificate
 
 Install pada Lucee
 ------------------
+CREATE KEYSTORE FILE
+ - Buka cmd
+   Taip
+    cd {folder Lucee}/jdk/bin
+   
+   Kemudian taip 
+    keytool -genkey -alias tomcat -keyalg RSA
+   
+   Jawab soalan-soalan yang ditanya dan masukkan password dan taip Y atau Yes
+   Satu fail .keystore akan dicreate pada direktori C:\Users\{nama user}\.keystore atau C:Documents and Settings[username]
 
+CONFIGURE TOMCAT - SSL Config
+ - Buka direktori 
+   {folder lucee}\tomcat\conf
+   Cari fail server.xml buka fail dan cari 
+    <!--
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+        maxThreads="150" scheme="https" secure="true"
+        clientAuth="false" sslProtocol="TLS" />
+    -->
+    Buka komen iaitu delete '<!-- dan --> (rujuk kod dibawah)
 
+    Connector SSLEnabled="true" acceptCount="100" clientAuth="false"
+    disableUploadTimeout="true" enableLookups="false" maxThreads="25"
+    port="8443" keystoreFile="{lokasi keystore fail}/.keystore" keystorePass="password"
+    protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https"
+    secure="true" sslProtocol="TLS" />
+
+TEST
+- Start tomcat service 
+  Buka bowser dan layari https://localhost:8443
+  Page anda sepatutnya berjaya dibuka.
+*Default port ssl 443 so boleh tukar 8443 kepada 443 so tak perlu taip :8443 kat hujung url.
