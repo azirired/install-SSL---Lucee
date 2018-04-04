@@ -11,7 +11,7 @@
 <br>keytool -importkeystore -srckeystore c:/Users/aziri/certificate.pfx -srcstoretype pkcs12 
 -destkeystore c:/Users/aziri/aziricert.jks -deststoretype JKS</li>
 <li>Buka fail {tomcat dir}/conf/server.xml configure
-<br>	<Connector port="443" maxHttpHeaderSize="8192" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" enableLookups="false" disableUploadTimeout="true" acceptCount="100" scheme="https" secure="true" SSLEnabled="true" clientAuth="false" sslProtocol="TLS" keyAlias="server" keystoreFile="c:/Users/aziri/aziricert.jks" keystorePass="your_keystore_password" /></li>
+<br>	"<Connector port="443" maxHttpHeaderSize="8192" maxThreads="150" minSpareThreads="25" maxSpareThreads="75" enableLookups="false" disableUploadTimeout="true" acceptCount="100" scheme="https" secure="true" SSLEnabled="true" clientAuth="false" sslProtocol="TLS" keyAlias="server" keystoreFile="c:/Users/aziri/aziricert.jks" keystorePass="your_keystore_password" /></li>
 <li> Configure Cipher and TLS - Untk dapat rating A<br>
 <Connector port="443" protocol="org.apache.coyote.http11.Http11NioProtocol"
 maxThreads="150" SSLEnabled="true" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" 
@@ -20,7 +20,7 @@ SSLHonorCipherOrder="true" SSLDisableCompression="true" scheme="https" secure="t
 clientAuth="false" sslProtocol="TLS"
 keyAlias="namakeyalias_anda" keystoreFile="lokasikeystore"
 keystorePass="passkeystore" 
-/>
+/>"
 </li>
 
 <li>restart tomcat</li>
