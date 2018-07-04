@@ -6,8 +6,10 @@
 <li>dah dapat 3 file (private.key, ca_bundle.crt,certificate.crt) convert kepada pkcs12 (pfx) guna openssl
 <br>openssl pkcs12 -export -out c:/Users/aziri/certificate.pfx -inkey private.key -in certificate.crt -certfile ca_bundle.crt</li>
 *openssl dalam folder C:\Program Files (x86)\GnuWin32\bin
+  
 <br>-refer : https://www.ssl.com/how-to/create-a-pfx-p12-certificate-file-using-openssl/</li>
 <li>Next guna command pada keytool </li>
+*keytool dalam folder {{lucee folder}}\jdk\bin
 <br>keytool -importkeystore -srckeystore c:/Users/aziri/certificate.pfx -srcstoretype pkcs12 
 -destkeystore c:/Users/aziri/aziricert.jks -deststoretype JKS</li>
 <li>Buka fail {tomcat dir}/conf/server.xml configure
